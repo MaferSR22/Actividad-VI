@@ -1,0 +1,29 @@
+# Versión mínima requerida de CMake
+cmake_minimum_required(VERSION 3.10)
+
+# Nombre del proyecto
+project(OLED_Display_Project)
+
+# Establecer el estándar de C (C11 en este caso)
+set(CMAKE_C_STANDARD 11)
+
+# Añadir los archivos fuente
+set(SOURCES
+    main.c
+    hardware_i2c.c
+    oled_display.c
+)
+
+# Incluir directorios para encabezados
+include_directories(
+    include
+)
+
+# Crear el ejecutable
+add_executable(OLED_Display_Project ${SOURCES})
+
+# Librerías adicionales necesarias para I2C
+# Esto depende del sistema operativo y de la implementación de I2C.
+# En sistemas embebidos, es posible que no necesites nada aquí.
+# En sistemas basados en Linux, podrías necesitar enlazar `-li2c`.
+# target_link_libraries(OLED_Display_Project i2c)  # Descomentar si es necesario
